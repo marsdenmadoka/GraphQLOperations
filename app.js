@@ -6,7 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 //graphql
 const  {graphqlHTTP} =require('express-graphql');
-const schema=require('./models/schema');
+const schema=require('./graphqlschema/schema');
 
 
 var indexRouter = require('./routes/index');
