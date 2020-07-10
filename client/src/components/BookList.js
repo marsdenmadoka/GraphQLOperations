@@ -41,3 +41,5 @@ return(
 }
 }
 export default graphql(getBooksQuery)(BookList);  //here weare using the default graphql(import {graphql}from 'react-apollo ) to bind our Query(getBooksQuery) to the component(BookList)
+
+export{getBooksQuery} //we exported it here alone since we wanted to use it in AddBooks.js for freshing pages/re-rendering the page

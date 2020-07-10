@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {gql} from 'apollo-boost'; //helps us to write our queries
 import {graphql} from 'react-apollo'; //help us bind our query to compponent
 import compose from 'lodash.flowright';
+import {getBooksQuery} from '../components/BookList'
 //import{getAuthorsQuery,AddBookMutation} from '../queries/queries'
 
 //getting our authors
@@ -50,7 +51,8 @@ submitForm(e){
             name:this.state.name,
             genre:this.state.genre,
             authorId:this.state.authorId
-        }
+        },
+        refetchQueries:[{query:getBooksQuery}] //this means re-run the query after the updates so that we can see the udate on the page
     });
 
 }
