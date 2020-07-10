@@ -3,6 +3,9 @@ import {gql} from 'apollo-boost'; //helps us to write our queries
 import {graphql} from 'react-apollo'; //help us bind our query to compponent
 //import {getBooksQuery} from '../queries/queries'
 
+//components
+import BookDetails from './BookDetails';
+
 //getting our books
 const getBooksQuery=gql` 
 {
@@ -14,6 +17,12 @@ const getBooksQuery=gql`
 `
 
 class BookList extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      selected:null
+    }
+  }
 displayBooks(){
 var data = this.props.data;
 if(data.loading){
@@ -21,7 +30,7 @@ if(data.loading){
 }else{
   return data.books.map(book=>{
 return(
-<li key={book.id}> {book.name}</li>
+<li key={book.id} onClick={(e)=>{this.setState({selected:book.id})}}> {book.name}</li>
 ) 
 
   })
@@ -36,6 +45,7 @@ return(
       {/* this.referes to the component and te function inside the compponent */}
         {this.displayBooks()} 
     </ul>
+    <BookDetails bookId={this.state.selected}/>
     </div>
   );
 }
