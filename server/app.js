@@ -7,12 +7,15 @@ const mongoose = require('mongoose');
 //graphql
 const  {graphqlHTTP} =require('express-graphql');
 const schema=require('./graphqlschema/schema');
-
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+//allow cross origin request
+app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/GraphQL',{useNewUrlParser: true,useCreateIndex:true,useUnifiedTopology: true}); 
 var db=mongoose.connection; 
@@ -58,7 +61,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(4000,function() {
+app.listen(5000,function() {
   console.log('Server started at port 5000');
   });
 
