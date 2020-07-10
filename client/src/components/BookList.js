@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {gql} from 'apollo-boost'; //helps us to write our queries
 import {graphql} from 'react-apollo'; //help us bind our query to compponent
+//import {getBooksQuery} from '../queries/queries'
+
 //getting our books
 const getBooksQuery=gql` 
 {
