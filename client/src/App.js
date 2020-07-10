@@ -4,6 +4,7 @@ import {ApolloProvider} from 'react-apollo' //wraps and inject our application w
 
 //importing our components
 import BookList from'./components/BookList';
+import AddBook from'./components/AddBook';
 
 //setting up Apollo client 
 const client = new ApolloClient({
@@ -23,7 +24,9 @@ class App extends Component {
     <div id="main">
     <h1>madoka reading books</h1>
     <BookList/>    {/* react wiil serach this Booklist and render it since we imported it */}
+     <AddBook/>
     </div>
+
     </ApolloProvider>
   );
 }
